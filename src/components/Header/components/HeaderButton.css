@@ -1,0 +1,20 @@
+.header-button {
+  height: 30px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: grey;
+  margin: 0px 10px;
+  opacity: 0.5;
+  cursor: default;
+}
+
+.header-button.selected {
+  opacity: 1;
+}
+
+.header-button p {
+  margin: 0;
+  color: white;
+}

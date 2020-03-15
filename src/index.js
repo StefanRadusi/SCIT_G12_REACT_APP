@@ -1,12 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+// we need to import 'react' library when we use in the file the 'jsx'
+// we can find 'jsx' syntax at line 9 where '<App />' is called
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import "./index.css";
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// this line wil link the root div which you ca find in the './public/index.html' file
+// <App /> is the root application
+ReactDOM.render(<App />, document.getElementById("root"));
