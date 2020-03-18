@@ -1,0 +1,16 @@
+.meal-page__meal-navigation {
+  display: flex;
+}
+
+.meal-page__meal-navigation p {
+  padding: 10px;
+  margin: 10px;
+  background: grey;
+  color: white;
+  cursor: default;
+  border-radius: 10px;
+}
+
+.meal-page__meal-navigation p.disabled {
+  opacity: 0.5;
+}

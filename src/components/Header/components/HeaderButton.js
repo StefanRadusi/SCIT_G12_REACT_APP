@@ -8,12 +8,14 @@ export class HeaderButton extends Component {
   };
 
   render() {
+    const { selected, text } = this.props;
+
     return (
       <div
-        className={`header-button${this.props.selected ? " selected" : ""}`}
+        className={`header-button${selected ? " selected" : ""}`}
         onClick={this.handleClick}
       >
-        <p>{this.props.text}</p>
+        <p>{text}</p>
       </div>
     );
   }
