@@ -1,5 +1,9 @@
 import React, { Component } from "react";
-import { fetchMeal } from "./MealPageUtils";
+import {
+  fetchMeal,
+  cacheIntoLocalStorage,
+  retrieveFromLocalStorage
+} from "./MealPageUtils";
 
 import "./MealPage.css";
 
@@ -10,12 +14,15 @@ export class MealPage extends Component {
   };
 
   componentDidMount() {
-    console.log("mounted");
-
-    fetchMeal(this.props.letter).then(json => {
-      console.log(json);
-      this.setState({ meals: json.meals });
-    });
+    const cacheMeals = retrieveFromLocalStorage(this.props.letter);
+    if (cacheMeals) {
+      this.setState({ meals: cacheMeals });
+    } else {
+      fetchMeal(this.props.letter).then(json => {
+        this.setState({ meals: json.meals });
+        cacheIntoLocalStorage(this.props.letter, json.meals);
+      });
+    }
   }
 
   handleNextMeal = () => {
@@ -50,21 +57,38 @@ export class MealPage extends Component {
         {currentMeal ? (
           <div>
             <h2 className="meal-page__meal-title">{currentMeal.strMeal}</h2>
+            <div className="description-container">
+              <div className="img-container">
+                <img src={currentMeal.strMealThumb} alt={"nothing"} />
+              </div>
+              <div className="instructions">
+                <h3>Instructions: </h3>
+                <p>{currentMeal.strInstructions}</p>
+              </div>
+            </div>
             <div className="meal-page__meal-navigation">
-              <p
-                className={currentMealIndex === 0 ? "disabled" : ""}
-                onClick={this.handlePreviousMeal}
-              >
-                {"<"}
-              </p>
-              <p
-                className={
-                  currentMealIndex === meals.length - 1 ? "disabled" : ""
-                }
-                onClick={this.handleNextMeal}
-              >
-                {">"}
-              </p>
+              <div className="buttons">
+                <p
+                  className={currentMealIndex === 0 ? "disabled" : ""}
+                  onClick={this.handlePreviousMeal}
+                >
+                  {"<"}
+                </p>
+                <p
+                  className={
+                    currentMealIndex === meals.length - 1 ? "disabled" : ""
+                  }
+                  onClick={this.handleNextMeal}
+                >
+                  {">"}
+                </p>
+              </div>
+              <div className="info">
+                <p>
+                  Meal <span>{currentMealIndex + 1}</span> out of{" "}
+                  <span>{meals.length}</span>
+                </p>
+              </div>
             </div>
           </div>
         ) : (

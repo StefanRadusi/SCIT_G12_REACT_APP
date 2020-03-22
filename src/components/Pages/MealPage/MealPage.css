@@ -2,6 +2,19 @@
   display: flex;
 }
 
+.buttons {
+  display: flex;
+  border-left: 1px solid lightgray;
+}
+
+.info {
+  border-left: 1px solid lightgray;
+}
+
+.info span {
+  font-weight: bold;
+}
+
 .meal-page__meal-navigation p {
   padding: 10px;
   margin: 10px;
@@ -13,4 +26,31 @@
 
 .meal-page__meal-navigation p.disabled {
   opacity: 0.5;
+}
+
+.description-container {
+  display: flex;
+  padding-bottom: 10px;
+  border-bottom: 1px solid lightgray;
+}
+
+.description-container .img-container {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.description-container .img-container img {
+  width: 100%;
+}
+
+.description-container .instructions {
+  flex: 3;
+}
+
+.description-container .instructions h3 {
+  margin-top: 0;
+}
+
+.description-container .instructions p {
+  color: rgb(65, 65, 65);
 }
