@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import {
   fetchMeal,
   cacheIntoLocalStorage,
-  retrieveFromLocalStorage
+  retrieveFromLocalStorage,
+  getCurrentLetter
 } from "./MealPageUtils";
 
 import "./MealPage.css";
@@ -14,13 +15,15 @@ export class MealPage extends Component {
   };
 
   componentDidMount() {
-    const cacheMeals = retrieveFromLocalStorage(this.props.letter);
+    const letter = getCurrentLetter(this.props.location);
+
+    const cacheMeals = retrieveFromLocalStorage(letter);
     if (cacheMeals) {
       this.setState({ meals: cacheMeals });
     } else {
-      fetchMeal(this.props.letter).then(json => {
+      fetchMeal(letter).then(json => {
         this.setState({ meals: json.meals });
-        cacheIntoLocalStorage(this.props.letter, json.meals);
+        cacheIntoLocalStorage(letter, json.meals);
       });
     }
   }
@@ -42,11 +45,8 @@ export class MealPage extends Component {
   };
 
   render() {
-    const { letter } = this.props;
     const { meals, currentMealIndex } = this.state;
-
-    console.log("render");
-    console.log(meals);
+    const letter = getCurrentLetter(this.props.location);
 
     const currentMeal = meals[currentMealIndex];
 
@@ -55,7 +55,7 @@ export class MealPage extends Component {
         <h1>{`This is meal page:  ${letter}`}</h1>
 
         {currentMeal ? (
-          <div>
+          <div className="meal-page__current-meal">
             <h2 className="meal-page__meal-title">{currentMeal.strMeal}</h2>
             <div className="description-container">
               <div className="img-container">

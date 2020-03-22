@@ -1,22 +1,18 @@
 import React, { Component } from "react";
 
 import "./HeaderButton.css";
+import { Link } from "react-router-dom";
 
 export class HeaderButton extends Component {
-  handleClick = () => {
-    this.props.changePages(this.props.text);
-  };
-
   render() {
-    const { selected, text } = this.props;
+    const { selected, text, path } = this.props;
 
     return (
-      <div
-        className={`header-button${selected ? " selected" : ""}`}
-        onClick={this.handleClick}
-      >
-        <p>{text}</p>
-      </div>
+      <Link to={path} style={{ color: "inherit", textDecoration: "inherit" }}>
+        <div className={`header-button${selected ? " selected" : ""}`}>
+          <p>{text}</p>
+        </div>
+      </Link>
     );
   }
 }

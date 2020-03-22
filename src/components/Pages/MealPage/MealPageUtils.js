@@ -16,3 +16,8 @@ export function retrieveFromLocalStorage(letter) {
   const mealsString = localStorage.getItem(letter);
   if (mealsString) return JSON.parse(mealsString);
 }
+
+export function getCurrentLetter(location) {
+  const letter = new URLSearchParams(location.search).get("letter");
+  return letter || "A";
+}

@@ -1,5 +1,19 @@
-.meal-page__meal-navigation {
+.meal-page {
   display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.meal-page__current-meal {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.meal-page__meal-navigation {
+  margin-top: auto;
+  display: flex;
+  border-top: 1px solid lightgray;
 }
 
 .buttons {
@@ -31,7 +45,6 @@
 .description-container {
   display: flex;
   padding-bottom: 10px;
-  border-bottom: 1px solid lightgray;
 }
 
 .description-container .img-container {
