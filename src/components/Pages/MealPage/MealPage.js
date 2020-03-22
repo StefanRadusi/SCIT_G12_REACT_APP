@@ -44,7 +44,7 @@ export class MealPage extends Component {
     const currentMeal = meals[currentMealIndex];
 
     return (
-      <div className="meal-page">
+      <div className="page meal-page">
         <h1>{`This is meal page:  ${letter}`}</h1>
 
         {currentMeal ? (

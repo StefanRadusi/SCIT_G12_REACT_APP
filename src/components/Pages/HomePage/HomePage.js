@@ -10,7 +10,7 @@ export class HomePage extends Component {
 
   render() {
     return (
-      <div className="home-page">
+      <div className="page home-page">
         <h1>Choose a meal that start width: </h1>
         {generateLetters().map((element, index) => {
           return (

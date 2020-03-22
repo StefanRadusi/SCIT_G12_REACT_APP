@@ -8,7 +8,7 @@ import { MealPage } from "./components/Pages/MealPage/MealPage";
 class App extends Component {
   // the app holds the state for which page will be render
   state = {
-    currentPage: "Meal",
+    currentPage: "Home",
     currentLetter: "A"
   };
 
