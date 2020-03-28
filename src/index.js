@@ -4,6 +4,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 
+
 import "./index.css";
 
 // this line wil link the root div which you ca find in the './public/index.html' file

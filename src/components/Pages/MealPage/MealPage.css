@@ -1,5 +1,8 @@
 .meal-page__meal-navigation {
   display: flex;
+  border: solid 1px lightgray;
+  border-right: none;
+  margin-right: 30px;
 }
 
 .meal-page__meal-navigation p {
@@ -9,8 +12,24 @@
   color: white;
   cursor: default;
   border-radius: 10px;
+  
 }
 
 .meal-page__meal-navigation p.disabled {
   opacity: 0.5;
+}
+.meal-page__meal-container-content{
+  display: flex;
+  
+}
+.meal-page{
+  margin-left: 20px;
+  
+}
+.meal-page__meal-content-text{
+  margin-left:  30px;
+  margin-right: 30px;
+}
+.meal-page__meal-navigation-bolder{
+  font-weight: bolder;
 }

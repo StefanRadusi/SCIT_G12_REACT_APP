@@ -6,6 +6,7 @@ import "./HomePage.css";
 export class HomePage extends Component {
   handleOnClick(element) {
     this.props.changeCurrentLetter(element);
+    
   }
 
   render() {

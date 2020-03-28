@@ -15,6 +15,7 @@ export class MealPage extends Component {
     fetchMeal(this.props.letter).then(json => {
       console.log(json);
       this.setState({ meals: json.meals });
+     
     });
   }
 
@@ -42,6 +43,8 @@ export class MealPage extends Component {
     console.log(meals);
 
     const currentMeal = meals[currentMealIndex];
+    console.log(currentMeal);
+    localStorage.setItem(this.props.letter, JSON.stringify(currentMeal));
 
     return (
       <div className="meal-page">
@@ -50,6 +53,15 @@ export class MealPage extends Component {
         {currentMeal ? (
           <div>
             <h2 className="meal-page__meal-title">{currentMeal.strMeal}</h2>
+            <div className="meal-page__meal-container-content">
+              <div className="meal-page__meal-content-image">
+                <img src ={currentMeal.strMealThumb} width="300" height="300"></img>
+              </div>
+              <div className="meal-page__meal-content-text">
+                <h2>Intructions : </h2>
+                <p>{currentMeal.strInstructions}</p>
+              </div>
+            </div>
             <div className="meal-page__meal-navigation">
               <p
                 className={currentMealIndex === 0 ? "disabled" : ""}
@@ -65,6 +77,7 @@ export class MealPage extends Component {
               >
                 {">"}
               </p>
+              <p>Meal <span className="meal-page__meal-navigation-bolder">{currentMealIndex + 1}</span> out of <span className="meal-page__meal-navigation-bolder">{meals.length}</span></p>
             </div>
           </div>
         ) : (
