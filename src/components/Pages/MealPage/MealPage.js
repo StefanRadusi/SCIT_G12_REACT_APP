@@ -10,7 +10,7 @@ export class MealPage extends Component {
   };
 
   componentDidMount() {
-    console.log("mounted");
+    console.log("mountedd");
 
     fetchMeal(this.props.letter).then(json => {
       console.log(json);
@@ -50,6 +50,20 @@ export class MealPage extends Component {
         {currentMeal ? (
           <div>
             <h2 className="meal-page__meal-title">{currentMeal.strMeal}</h2>
+            <div className="meal-page__details-container">
+              <div className="meal-page__meal-image-container">
+                <img
+                  className="meal-page__meal-image"
+                  src={currentMeal.strMealThumb}
+                  width="300px"
+                  height="300px"
+                />
+              </div>
+              <div className="meal-page__meal-instructions">
+                <h1 className="meal-page__instructions">Instructions:</h1>
+                <p>{currentMeal.strInstructions}</p>
+              </div>
+            </div>
             <div className="meal-page__meal-navigation">
               <p
                 className={currentMealIndex === 0 ? "disabled" : ""}
@@ -65,6 +79,12 @@ export class MealPage extends Component {
               >
                 {">"}
               </p>
+              <div id="meal-page__num">
+                <p>
+                  Meal <span>{currentMealIndex + 1}</span> out of{" "}
+                  <span>{meals.length}</span>
+                </p>
+              </div>
             </div>
           </div>
         ) : (
