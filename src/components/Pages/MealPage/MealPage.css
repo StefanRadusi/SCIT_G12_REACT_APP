@@ -11,6 +11,40 @@
   border-radius: 10px;
 }
 
+.meal-navigation {
+  display: flex;
+}
+
+
 .meal-page__meal-navigation p.disabled {
+
   opacity: 0.5;
 }
+
+img {
+  height: 250px;
+  width: 250px;
+}
+.meal-description {
+  display: flex;
+  padding-bottom: 100px;
+}
+.meal-page {
+padding-left: 15px;
+}
+
+.instructions {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.instructions p {
+  font-size: 10px;
+}
+.page-number {
+  border-left: 1px solid lightgrey;
+}
+
+
+
+
+
