@@ -14,3 +14,7 @@
 .meal-page__meal-navigation p.disabled {
   opacity: 0.5;
 }
+
+.img-box-desc {
+  display: flex;
+}

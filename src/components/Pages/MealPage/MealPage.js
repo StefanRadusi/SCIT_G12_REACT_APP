@@ -55,6 +55,7 @@ export class MealPage extends Component {
                 <img src={currentMeal.strMealThumb} alt="food photo" />
               </div>
               <div className="description">
+                <h3>Instructions</h3>
                 <p>{currentMeal.strInstructions}</p>
               </div>
             </div>
