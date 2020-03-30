@@ -50,6 +50,14 @@ export class MealPage extends Component {
         {currentMeal ? (
           <div>
             <h2 className="meal-page__meal-title">{currentMeal.strMeal}</h2>
+            <div className="img-box-desc">
+              <div className="imgs">
+                <img src={currentMeal.strMealThumb} alt="food photo" />
+              </div>
+              <div className="description">
+                <p>{currentMeal.strInstructions}</p>
+              </div>
+            </div>
             <div className="meal-page__meal-navigation">
               <p
                 className={currentMealIndex === 0 ? "disabled" : ""}
