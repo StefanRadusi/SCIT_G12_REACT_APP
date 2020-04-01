@@ -1,5 +1,11 @@
+.meal-page{
+  margin:20px;
+}
 .meal-page__meal-navigation {
   display: flex;
+  margin-top: 30px;
+  border-top: 2px solid gray;
+
 }
 
 .meal-page__meal-navigation p {
@@ -10,7 +16,20 @@
   cursor: default;
   border-radius: 10px;
 }
-
+.nav-buttons{
+  display:flex;
+  border-left: 2px solid gray;
+  border-right: 2px solid gray;
+}
 .meal-page__meal-navigation p.disabled {
   opacity: 0.5;
+}
+.meal-picture{
+  height:300px;
+}
+.description{
+  display:flex;
+}
+.img-description{
+  margin-left: 20px;
 }

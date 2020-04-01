@@ -1,3 +1,8 @@
+.home-page{
+  margin: 20px;
+}
 .home-page h3 {
   display: inline;
+  margin-right: 20px;
+  text-decoration: underline;
 }
