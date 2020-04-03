@@ -48,16 +48,19 @@ export class MealPage extends Component {
         <h1>{`This is meal page:  ${letter}`}</h1>
 
         {currentMeal ? (
-          <div>
-            <h2 className="meal-page__meal-title">{currentMeal.strMeal}</h2>
-            <div className="meal-page__meal-navigation">
-
-            <img src={currentMeal.strMealThumb} className="meal-image"/>
           
-            <div className='instr-container'> 
-            <p className="meal-instructions">{currentMeal.strInstructions} </p>
+          <div>
+            
+            <h2 className="meal-page__meal-title">{currentMeal.strMeal}</h2>
+              <div className='instr-container'> 
+               <img src={currentMeal.strMealThumb} className="meal-image"/>
+                 <h2>Instructions</h2>
+                <p className="meal-instructions">{currentMeal.strInstructions} </p>
+               
 
             </div>
+            <div className="meal-page__meal-navigation">
+           
               <p
                 className={currentMealIndex === 0 ? "disabled" : ""}
                 onClick={this.handlePreviousMeal}
@@ -72,8 +75,10 @@ export class MealPage extends Component {
               >
                 {">"}
               </p>
-              <p> Meal {currentMealIndex + 1} out of {currentMealIndex.length} </p>
+              <p> Meal {currentMealIndex } out of {currentMealIndex + 1} </p>
+            
             </div>
+          
           </div>
         ) : (
           <p>Loading</p>

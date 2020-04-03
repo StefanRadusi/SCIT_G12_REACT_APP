@@ -20,4 +20,17 @@
   width: 200px;
 }
 
+.instr-container {
+  display: flex;
+  
+  margin-left: 5px;
+
+}
+
+.meal-instructions {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+
 
