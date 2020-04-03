@@ -1,5 +1,12 @@
 .meal-page__meal-navigation {
   display: flex;
+  position: absolute;
+  bottom: 0;
+  border: 1px solid lightgray;
+}
+
+.meal-page-nav-info{
+  border-left: 1px solid lightgray;
 }
 
 .meal-page__meal-navigation p {
@@ -14,3 +21,19 @@
 .meal-page__meal-navigation p.disabled {
   opacity: 0.5;
 }
+
+.meal-info{
+  position: relative;
+  display:flex;
+}
+
+.meal-page__meal-image{/*nu stiu de ce la prima afisare imaginea are o alta forma apoi isi revine la urmatorul eveniment??..*/
+  width: 250px;
+  height: 250px;
+  margin-right: 25px;
+ 
+}
+
+
+
+

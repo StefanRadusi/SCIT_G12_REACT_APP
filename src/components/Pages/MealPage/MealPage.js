@@ -5,18 +5,44 @@ import "./MealPage.css";
 
 export class MealPage extends Component {
   state = {
+
     meals: [],
     currentMealIndex: 0
   };
 
-  componentDidMount() {
-    console.log("mounted");
 
-    fetchMeal(this.props.letter).then(json => {
-      console.log(json);
-      this.setState({ meals: json.meals });
-    });
+
+
+  componentDidMount(query) {
+    console.log("mounted");
+    const cachedMeals = localStorage.getItem(this.props.letter)//// constanta ca sa verificam daca avem ceva in local storage
+
+    if (cachedMeals) {  //daca cachedMeals e true, ne setam current state de aici (local storage)
+      this.setState({ meals: JSON.parse(cachedMeals) });
+    } else {/////altfel, facem fetch 
+      fetchMeal(this.props.letter)
+        .then(json => {
+          console.log(json);
+
+          this.onSetResult(json, this.props.letter)///apelam o functie ca sa salvam raspunsul din fetch in local storage si sa actualizam current state
+          // this.setState({ meals: json.meals });
+
+        });
+    }
   }
+
+  ///////////////////////////////////////////////////////////
+
+  onSetResult = (result, key) => {
+    localStorage.setItem(key, JSON.stringify(result.meals));
+    this.setState({ meals: result.meals });
+  };
+
+
+
+
+
+  /////////////////////////////////////////////////////////////////////
 
   handleNextMeal = () => {
     const { currentMealIndex, meals } = this.state;
@@ -50,6 +76,12 @@ export class MealPage extends Component {
         {currentMeal ? (
           <div>
             <h2 className="meal-page__meal-title">{currentMeal.strMeal}</h2>
+            <div className="meal-info">
+              <img className="meal-page__meal-image" src={currentMeal.strMealThumb}></img>
+              <div><h3>Instructions</h3>
+                <p className="meal-page__meal-instructions"> {currentMeal.strInstructions}</p></div>
+
+            </div>
             <div className="meal-page__meal-navigation">
               <p
                 className={currentMealIndex === 0 ? "disabled" : ""}
@@ -65,11 +97,17 @@ export class MealPage extends Component {
               >
                 {">"}
               </p>
+              <div className="meal-page-nav-info">
+                <p>Meal {currentMealIndex} out of {meals.length}</p>
+              </div>
+
+
             </div>
           </div>
         ) : (
-          <p>Loading</p>
-        )}
+            <p>Loading</p>
+          )
+        }
       </div>
     );
   }
