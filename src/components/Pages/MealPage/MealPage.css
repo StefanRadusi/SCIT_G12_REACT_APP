@@ -14,3 +14,10 @@
 .meal-page__meal-navigation p.disabled {
   opacity: 0.5;
 }
+
+.meal-image {
+  height: 200px;
+  width: 200px;
+}
+
+
