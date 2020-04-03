@@ -50,6 +50,8 @@ export class MealPage extends Component {
         {currentMeal ? (
           <div>
             <h2 className="meal-page__meal-title">{currentMeal.strMeal}</h2>
+            <p className="meal-instructions">{currentMeal.strInstructions} </p>
+            <p className="meal-image">{currentMeal.strMealThumb} </p>
             <div className="meal-page__meal-navigation">
               <p
                 className={currentMealIndex === 0 ? "disabled" : ""}
@@ -65,6 +67,7 @@ export class MealPage extends Component {
               >
                 {">"}
               </p>
+              <p> Meal {currentMealIndex} out of {currentMealIndex} </p>
             </div>
           </div>
         ) : (
