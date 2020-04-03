@@ -9,6 +9,8 @@
   color: white;
   cursor: default;
   border-radius: 10px;
+  margin-top: 80px;
+  margin-left: 20px;
 }
 
 .meal-page__meal-navigation p.disabled {
@@ -16,14 +18,13 @@
 }
 
 .meal-image {
-  height: 200px;
-  width: 200px;
+  height: 300px;
+  width: 300px;
 }
 
 .instr-container {
   display: flex;
-  
-  margin-left: 5px;
+ 
 
 }
 
@@ -31,6 +32,9 @@
   display: flex;
   flex-direction: column;
   margin-left: 15px;
+  margin-top: 40px;
 }
 
-
+.meal-page {
+  margin-left: 25px;
+}

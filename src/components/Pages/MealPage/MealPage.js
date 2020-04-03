@@ -54,10 +54,9 @@ export class MealPage extends Component {
             <h2 className="meal-page__meal-title">{currentMeal.strMeal}</h2>
               <div className='instr-container'> 
                <img src={currentMeal.strMealThumb} className="meal-image"/>
-                 <h2>Instructions</h2>
-                <p className="meal-instructions">{currentMeal.strInstructions} </p>
-               
-
+                  <p className="meal-instructions">{currentMeal.strInstructions} </p>
+                  <h3 className='instructions'>Instructions</h3>
+              
             </div>
             <div className="meal-page__meal-navigation">
            
