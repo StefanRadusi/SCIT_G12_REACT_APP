@@ -1,5 +1,8 @@
 .meal-page__meal-navigation {
   display: flex;
+  border: 1px solid lightgray;
+  margin-top: 130px;
+
 }
 
 .meal-page__meal-navigation p {
@@ -9,8 +12,7 @@
   color: white;
   cursor: default;
   border-radius: 10px;
-  margin-top: 80px;
-  margin-left: 20px;
+ 
 }
 
 .meal-page__meal-navigation p.disabled {
@@ -18,24 +20,26 @@
 }
 
 .meal-image {
-  height: 300px;
-  width: 300px;
+  height: 250px;
+  width: 250px;
 
 }
 
-.instr-container {
-  display: flex;
+.instructions-container {
+  position: relative;
+  display:flex;
  
-
+}
+.meal-page-navigation {
+  border-left: 1px solid lightgrey;
 }
 
-.meal-instructions {
+.meal-page_meal-instructions {
   display: flex;
-  flex-direction: column;
   margin-left: 15px;
-  margin-top: 40px;
+
 }
 
 .meal-page {
-  margin-left: 25px;
+  margin-left: 20px;
 }

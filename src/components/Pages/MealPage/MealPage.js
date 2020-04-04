@@ -52,10 +52,13 @@ export class MealPage extends Component {
           <div>
    
             <h2 className="meal-page__meal-title">{currentMeal.strMeal}</h2>
-              <div className='instr-container'> 
+              <div className='instructions-container'> 
                <img src={currentMeal.strMealThumb} className="meal-image"/>
-                  <p className="meal-instructions">{currentMeal.strInstructions} </p>
-                  <h3 className='instructions'>Instructions</h3>   
+              <div> 
+                  <h3 className="meal-page_meal-instructions">Instructions</h3>   
+                  <p className="meal-page_meal-instructions">{currentMeal.strInstructions} </p>
+
+              </div>      
             </div>
             <div className="meal-page__meal-navigation">
            
@@ -73,7 +76,10 @@ export class MealPage extends Component {
               >
                 {">"}
               </p>
-              <p> Meal {currentMealIndex } out of {currentMealIndex + 1} </p>
+              <div className='meal-page-navigation'>
+                <p> Meal {currentMealIndex + 1} out of {meals.length} </p>
+              </div>
+
             
             </div>
           
