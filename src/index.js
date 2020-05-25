@@ -6,6 +6,4 @@ import App from "./App";
 
 import "./index.css";
 
-// this line wil link the root div which you ca find in the './public/index.html' file
-// <App /> is the root application
 ReactDOM.render(<App />, document.getElementById("root"));

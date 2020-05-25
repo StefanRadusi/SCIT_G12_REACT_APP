@@ -1,5 +1,19 @@
 .meal-page__meal-navigation {
   display: flex;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  border-top: 2px solid lightgray;
+  border-left: 2px solid lightgray;
+  margin: 30px;
+}
+
+.meal-page {
+  margin-left: 30px;
+}
+
+#statusBox {
+  border-right: 2px solid lightgray;
 }
 
 .meal-page__meal-navigation p {
@@ -13,4 +27,23 @@
 
 .meal-page__meal-navigation p.disabled {
   opacity: 0.5;
+}
+
+.meal-img {
+  height: 400px;
+  width: 400px;
+  padding: 0px 40px 0px 0px;
+}
+
+.meal-img-container {
+  display: flex;
+}
+
+.meal-navigation-component {
+  display: flex;
+}
+
+.instructions {
+  font-size: 30px;
+  font-weight: 600;
 }
