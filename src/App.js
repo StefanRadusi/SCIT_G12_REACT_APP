@@ -4,20 +4,17 @@ import { Header } from "./components/Header";
 import { HomePage } from "./components/Pages/HomePage/HomePage";
 import { MealPage } from "./components/Pages/MealPage/MealPage";
 
-// it is easier to look for 'render' function for find out what the component will render
 class App extends Component {
-  // the app holds the state for which page will be render
   state = {
     currentPage: "Meal",
-    currentLetter: "A"
+    currentLetter: "A",
   };
 
-  // this method is responsible for changing which page is render but it is used by 'HeaderButton' component and it is passed through the props
-  changePages = pageName => {
+  changePages = (pageName) => {
     this.setState({ currentPage: pageName });
   };
 
-  changeCurrentLetter = letter => {
+  changeCurrentLetter = (letter) => {
     this.setState({ currentLetter: letter, currentPage: "Meal" });
   };
 

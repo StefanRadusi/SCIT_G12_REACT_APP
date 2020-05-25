@@ -62,7 +62,7 @@ export class MealPage extends Component {
 
         {currentMeal ? (
           <div className="main-meal-container">
-            <h2 className="meal-page__meal-title">{this.test()}</h2>
+            <h2 className="meal-page__meal-title">{currentMeal.strMeal}</h2>
             <div className="meal-img-container">
               <img className="meal-img" src={currentMeal.strMealThumb}></img>
               <div className="meal-instructions">
