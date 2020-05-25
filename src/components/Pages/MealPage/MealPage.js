@@ -30,7 +30,7 @@ export class MealPage extends Component {
   test() {
     let title = this.state.localmeals.meals[this.state.currentMealIndex].strMeal
       ? this.state.localmeals.meals[this.state.currentMealIndex].strMeal
-      : this.state.meals[this.state.currentMealIndex].strMeak;
+      : this.state.meals[this.state.currentMealIndex].strMeal;
     return title;
   }
 
