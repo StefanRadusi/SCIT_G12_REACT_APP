@@ -7,19 +7,17 @@ export class MealPage extends Component {
   state = {
     meals: [],
     currentMealIndex: 0,
-    localStorageKey: "",
+    localmeals: [],
   };
 
   componentDidMount() {
     // console.log("mounted");
 
-    console.log(Object.keys(object1));
-    for (var i = 0; i < localStorage.length; i++) {
-      var key   = localStorage.key(i);
-      var value = localStorage.getItem(key);
-      console.log(key);
-      // console.log(value)
-  }
+    let storedMealInfo = localStorage.getItem(this.props.letter);
+    const SavedmealObj = JSON.parse(storedMealInfo);
+    this.setState({ localmeals: SavedmealObj });
+
+
     fetchMeal(this.props.letter)
     .then(json => {
       this.setState({ meals: json.meals });
