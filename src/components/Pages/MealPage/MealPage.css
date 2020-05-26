@@ -14,3 +14,15 @@
 .meal-page__meal-navigation p.disabled {
   opacity: 0.5;
 }
+.meal-image-container img{
+  width: 450px;
+  height: auto;
+}
+.Body-Container{
+  display: flex;
+  flex-direction: row;
+}
+
+.Meal-Text{
+  margin-left: 20px;
+}
