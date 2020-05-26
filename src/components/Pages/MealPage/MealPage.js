@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { fetchMeal } from "./MealPageUtils";
+import Cookie from "cookies-js";
 
 import "./MealPage.css";
 
@@ -7,24 +8,27 @@ export class MealPage extends Component {
   state = {
     meals: [],
     currentMealIndex: 0,
-    localmeals: [],
   };
 
   componentDidMount() {
     // console.log("mounted");
 
-    if(this.state.localmeals){
-      console.log("ASDO")
-    }
-    fetchMeal(this.props.letter)
-    .then(json => {
-      this.setState({ meals: json.meals });
-      window.localStorage.setItem(this.props.letter,JSON.stringify(json.meals))
-    })
-    ;
-    let storedMealInfo = localStorage.getItem(this.props.letter);
-    const SavedmealObj = JSON.parse(storedMealInfo);
-    this.setState({ localmeals: SavedmealObj });
+    const localStoragedMeals = localStorage.getItem(this.props.letter);
+    if(localStoragedMeals){
+      this.setState({
+        meals: JSON.parse(localStoragedMeals)
+      })
+    } else(
+      fetchMeal(this.props.letter)
+      .then(json => {
+        this.setState({ meals: json.meals });
+        window.localStorage.setItem(this.props.letter,JSON.stringify(json.meals))
+      })
+      
+    )
+      const mealsss = this.state.meals;
+      Cookie.set('mealImg',this.state.mealsss)
+   
   }
 
   handleNextMeal = () => {
