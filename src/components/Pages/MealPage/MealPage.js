@@ -6,16 +6,26 @@ import "./MealPage.css";
 export class MealPage extends Component {
   state = {
     meals: [],
-    currentMealIndex: 0
+    currentMealIndex: 0,
+    localStorageKey: "",
   };
 
   componentDidMount() {
     // console.log("mounted");
 
-    fetchMeal(this.props.letter).then(json => {
-      // console.log(json);
+    console.log(Object.keys(object1));
+    for (var i = 0; i < localStorage.length; i++) {
+      var key   = localStorage.key(i);
+      var value = localStorage.getItem(key);
+      console.log(key);
+      // console.log(value)
+  }
+    fetchMeal(this.props.letter)
+    .then(json => {
       this.setState({ meals: json.meals });
-    });
+      window.localStorage.setItem(this.props.letter,JSON.stringify(json.meals))
+    })
+    ;
   }
 
   handleNextMeal = () => {

@@ -4,6 +4,6 @@ function generateUrl(letter) {
 
 export function fetchMeal(letter) {
   const url = generateUrl(letter);
-
+  
   return fetch(url).then(response => response.json());
 }
