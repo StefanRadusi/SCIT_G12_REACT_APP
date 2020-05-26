@@ -13,17 +13,18 @@ export class MealPage extends Component {
   componentDidMount() {
     // console.log("mounted");
 
-    let storedMealInfo = localStorage.getItem(this.props.letter);
-    const SavedmealObj = JSON.parse(storedMealInfo);
-    this.setState({ localmeals: SavedmealObj });
-
-
+    if(this.state.localmeals){
+      console.log("ASDO")
+    }
     fetchMeal(this.props.letter)
     .then(json => {
       this.setState({ meals: json.meals });
       window.localStorage.setItem(this.props.letter,JSON.stringify(json.meals))
     })
     ;
+    let storedMealInfo = localStorage.getItem(this.props.letter);
+    const SavedmealObj = JSON.parse(storedMealInfo);
+    this.setState({ localmeals: SavedmealObj });
   }
 
   handleNextMeal = () => {
