@@ -1,21 +1,34 @@
 import React, { Component } from "react";
-import { fetchMeal } from "./MealPageUtils";
+import {
+  fetchMeal,
+  cacheIntoLocalStorage,
+  retrieveFromLocalStorage,
+} from "./MealPageUtils";
 
 import "./MealPage.css";
 
 export class MealPage extends Component {
   state = {
     meals: [],
-    currentMealIndex: 0
+    currentMealIndex: 0,
   };
 
   componentDidMount() {
     console.log("mounted");
+    const letter = this.props;
+    const cacheMeals = retrieveFromLocalStorage(letter);
 
-    fetchMeal(this.props.letter).then(json => {
-      console.log(json);
-      this.setState({ meals: json.meals });
-    });
+    if (cacheMeals) {
+      this.setState({ meals: cacheMeals });
+    } else {
+      fetchMeal(this.props.letter).then((json) => {
+        console.log(json);
+        if (json.meals) {
+          this.setState({ meals: json.meals });
+          cacheIntoLocalStorage(this.props.letter, json.meals);
+        }
+      });
+    }
   }
 
   handleNextMeal = () => {
@@ -35,8 +48,8 @@ export class MealPage extends Component {
   };
 
   render() {
-    const { letter } = this.props;
     const { meals, currentMealIndex } = this.state;
+    const { letter } = this.props;
 
     console.log("render");
     console.log(meals);
@@ -46,10 +59,19 @@ export class MealPage extends Component {
     return (
       <div className="page meal-page">
         <h1>{`This is meal page:  ${letter}`}</h1>
-
         {currentMeal ? (
-          <div>
+          <div className="meal-page-details">
             <h2 className="meal-page__meal-title">{currentMeal.strMeal}</h2>
+            <div className="meal-page__meal-details">
+              <img id="meal-thumb" src={currentMeal.strMealThumb} alt="" />
+              <div className="meal-instructions">
+                <h3>Instructions:</h3>
+                <p className="meal-page__meal-description">
+                  {currentMeal.strInstructions}
+                </p>
+              </div>
+            </div>
+
             <div className="meal-page__meal-navigation">
               <p
                 className={currentMealIndex === 0 ? "disabled" : ""}
@@ -65,11 +87,17 @@ export class MealPage extends Component {
               >
                 {">"}
               </p>
+              <div className="meal-page__navigation-location">
+                <p>
+                  Meal <span>{currentMealIndex + 1}</span> out of{" "}
+                  <span>{meals.length}</span>
+                </p>
+              </div>
             </div>
           </div>
         ) : (
           <p>Loading</p>
-        )}
+        )}{" "}
       </div>
     );
   }
